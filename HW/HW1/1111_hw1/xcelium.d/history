@@ -1,0 +1,8 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(24Sep2022:01:10:05):( ncverilog testbench.v alu.v +define+ALL +access+rw )
+s2::(24Sep2022:01:24:59):( ncverilog testbench.v alu.v +define+ALL +access+rw )
+s3::(24Sep2022:01:25:15):( ncverilog testbench.v alu.v +define+ALL +access+rw )
+s4::(24Sep2022:15:51:00):( ncverilog testbench.v alu.v +define+ALL +access+rw )

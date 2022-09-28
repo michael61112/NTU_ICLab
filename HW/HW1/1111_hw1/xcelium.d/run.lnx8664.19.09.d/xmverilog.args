@@ -1,0 +1,8 @@
+//
+// File created by:  xmverilog
+// Do not modify this file
+//
+testbench.v
+alu.v
++define+ALL
++access+rw
