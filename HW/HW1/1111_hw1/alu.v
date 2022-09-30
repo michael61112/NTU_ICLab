@@ -2,17 +2,7 @@ module alu #(
 	parameter INT_W =3,
 	parameter FRAC_W = 5,
 	parameter INST_W = 3,
-	parameter DATA_W = INT_W + FRAC_W,
-	localparam ADD = 3'b000,
-	localparam SUB = 3'b001,
-	localparam MULTI = 3'b010,
-	localparam NAND = 3'b011,
-	localparam XNOR = 3'b100,
-	localparam SIGMOID = 3'b101,
-	localparam R_CIRCULAR_SHIFT = 3'b110,
-	localparam MIN = 3'b111,
-	localparam ROUND_DOWN = 1'b0,
-	localparam ROUND = 1'b1
+	parameter DATA_W = INT_W + FRAC_W
 )(
 	input 				i_clk,
 	input 				i_rst_n,
@@ -23,7 +13,16 @@ module alu #(
 	output				o_valid,
 	output		[DATA_W-1:0] 	o_data
 );
-
+localparam ADD = 3'b000;
+localparam SUB = 3'b001;
+localparam MULTI = 3'b010;
+localparam NAND = 3'b011;
+localparam XNOR = 3'b100;
+localparam SIGMOID = 3'b101;
+localparam R_CIRCULAR_SHIFT = 3'b110;
+localparam MIN = 3'b111;
+localparam ROUND_DOWN = 1'b0;
+localparam ROUND = 1'b1;
 // ----------------------------------------
 // Wires and Registers
 // ----------------------------------------
@@ -41,6 +40,7 @@ assign o_data = o_data_r;
 // ----------------------------------------
 always@(*) begin
 	if(i_valid) begin
+		o_data_w = o_data_r;
 		case(i_inst)
 			ADD: 
 				o_data_w = arithmetic(i_data_a, i_data_b, ADD);
